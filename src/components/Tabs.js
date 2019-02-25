@@ -17,6 +17,9 @@ class Tabs extends Component {
             <Tab label="Login Form" 
                  handleClick = {() => changeTab(2)}
                  isActive={activeTab === 2}/>
+            <Tab label="Fun People"
+                 handleClick = {() => changeTab(3)}
+                 isActive={activeTab === 3}/>
             </ul>
           </div>
       </div>

@@ -2,19 +2,14 @@ import React from 'react'
 
 const LoginForm = ({handleSubmit, handleChangePassword, handleChangeUsername, usernameVal, passwordVal, showAlert, alertMessage} ) => {
   return (
-
-// lost code 
-// {this.state.success ? <Success reset={() => this.resetForm()}/> : 
-
-
     <div>
         <div className="box">  
                 <h1 className="title">Login</h1>
-                
+
                 {showAlert ? <div className="notification is-danger">
-                                            <button className="delete"></button>
-                                            {alertMessage}
-                                        </div> : null}
+                <button className="delete"></button>
+                {alertMessage}
+                </div> : null}
                 
                 <form onSubmit={(event) => handleSubmit(event)}>
                     <div className="field">

@@ -6,6 +6,7 @@ import Tabs from './Tabs'
 import HelloReact from './HelloReact'
 import LoremIpsum from './LoremIpsum'
 import Login from './Login'
+import FunPeople from './FunPeople'
 
 class App extends Component {
   constructor(props) {
