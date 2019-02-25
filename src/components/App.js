@@ -31,6 +31,7 @@ class App extends Component {
           {this.state.activeTab === 0 ? <HelloReact /> : null}
           {this.state.activeTab === 1 ? <LoremIpsum /> : null}
           {this.state.activeTab === 2 ? <Login /> : null}
+          {this.state.activeTab === 3 ? <FunPeople /> : null}
         </div>
       </section>
     );
