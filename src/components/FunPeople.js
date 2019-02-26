@@ -11,6 +11,9 @@ class FunPeople extends Component {
          add: false,
          remove: false
       }
+    this.handleChangeName = this.handleChangeName.bind(this)
+    this.handleChangeReason = this.handleChangeReason.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleChangeName(e) {
@@ -22,15 +25,14 @@ class FunPeople extends Component {
     handleSubmit(e) {
         e.preventDefault()
         if(this.state.name && this.state.reason) {
-            console.log(this.state.name, this.state.reason)
             this.setState({add: true})
         }
     }
-
     removePerson() {
         this.setState({remove: true})
         console.log('person removed')
     }
+
   
     render() {
     return (
@@ -69,7 +71,9 @@ class FunPeople extends Component {
             </div>
 
             <div className="columns">
-                {this.state.add ? <NewFunPerson /> : <div className="columns">
+                {this.state.add ? <NewFunPerson nameVal={this.state.name}
+                                                reasonVal={this.state.reason}/> : 
+                <div className="columns">
                     <div className="column is-4">
                         <div className="box content is-medium">
                             <p>Bill is fun because he likes to party.</p>

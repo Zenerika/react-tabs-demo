@@ -14,8 +14,7 @@ constructor(props) {
  }
 
  decrement() {
-     if (this.state.numParagraphs === 0) return;
-
+    if (this.state.numParagraphs === 0) return;
     this.setState({numParagraphs: this.state.numParagraphs - 1})
  }
 

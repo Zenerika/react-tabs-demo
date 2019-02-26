@@ -1,7 +1,17 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const NewFunPerson = ({nameVal, reasonVal, removePerson}) => {
-  return (
+class NewFunPerson extends Component {
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+       
+    }
+  }
+  
+  render({nameVal, reasonVal, removePerson}) {
+    console.log('New Person: ', nameVal, reasonVal)
+    return (
     <div className="column is-4">
         <div className="box content is-medium">
             <p>{nameVal} is fun because he {reasonVal}.</p>
@@ -9,7 +19,8 @@ const NewFunPerson = ({nameVal, reasonVal, removePerson}) => {
                     onClick={() => removePerson()}>Remove {nameVal}</button>
         </div>
     </div>
-  )
+    )
+  }
 }
 
 export default NewFunPerson
