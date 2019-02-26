@@ -1,57 +1,98 @@
 import React, { Component } from 'react'
+import NewFunPerson from './NewFunPerson'
 
 class FunPeople extends Component {
-  render() {
-    return (
+    constructor(props) {
+      super(props)
     
-    <section class="content">
-        <h1 class="title">List of Fun People</h1>
+      this.state = {
+         name: '',
+         reason: '',
+         add: false,
+         remove: false
+      }
+    }
 
-        <div class="box">
-            <form>
-                <div class="field">
-                    <label class="label">Name</label>
-                    <div class="control">
-                        <input type="text" id="nameInput" class="input is-medium" value=""/>
+    handleChangeName(e) {
+        this.setState({name: e.target.value})
+    }
+    handleChangeReason(e) {
+        this.setState({reason: e.target.value})
+    }
+    handleSubmit(e) {
+        e.preventDefault()
+        if(this.state.name && this.state.reason) {
+            console.log(this.state.name, this.state.reason)
+            this.setState({add: true})
+        }
+    }
+
+    removePerson() {
+        this.setState({remove: true})
+        console.log('person removed')
+    }
+  
+    render() {
+    return (
+        <section className="content">
+            <h1 className="title">List of Fun People</h1>
+            <div className="box">
+                <form onSubmit={(e) => this.handleSubmit(e)}>
+                    <div className="field">
+                        <label className="label">Name</label>
+                        <div className="control">
+                            <input type="text" 
+                                id="nameInput" 
+                                className="input is-medium" 
+                                onChange={(e) => this.handleChangeName(e)}
+                                value={this.state.name}/>
+                        </div>
                     </div>
-                </div>
 
-                <div class="field">
-                    <label class="label">Reason they are fun</label>
-                    <div class="control">
-                        <input type="text" class="input is-medium" value=""/>
+                    <div className="field">
+                        <label className="label">Reason they are fun</label>
+                        <div className="control">
+                            <input type="text" 
+                                className="input is-medium" 
+                                onChange={(e) => this.handleChangeReason(e)}
+                                value={this.state.reason}/>
+                        </div>
                     </div>
-                </div>
-                <div class="field">
-                    <input type="submit" class="button is-link is-medium is-disabled" disabled="" value="Add Fun Person"/>
-                </div>
+                    <div className="field">
+                        <input type="submit" 
+                            className="button is-link is-medium is-disabled" 
+                            disabled="" 
+                            value="Add Fun Person"/>
+                    </div>
 
-            </form>
-        </div>
-
-        <div class="columns">
-            <div class="column is-4">
-                <div class="box content is-medium">
-                <p>Bill is fun because he likes to party.</p>
-                <button class="button is-link">Remove Bill</button>
+                </form>
             </div>
-        </div>
 
-        <div class="column is-4">
-            <div class="box content is-medium">
-                <p>Billy is fun because he parties harder than Bill.</p>
-                <button class="button is-link">Remove Billy</button>
-            </div>
-        </div>
+            <div className="columns">
+                {this.state.add ? <NewFunPerson /> : <div className="columns">
+                    <div className="column is-4">
+                        <div className="box content is-medium">
+                            <p>Bill is fun because he likes to party.</p>
+                            <button className="button is-link">Remove Bill</button>
+                        </div>
+                        </div>
 
-        <div class="column is-4">
-            <div class="box content is-medium">
-                <p>William is fun because he doesn't party at all.</p>
-                <button class="button is-link">Remove William</button>
+                        <div className="column is-4">
+                        <div className="box content is-medium">
+                            <p>Billy is fun because he parties harder than Bill.</p>
+                            <button className="button is-link">Remove Billy</button>
+                        </div>
+                        </div>
+
+                        <div className="column is-4">
+                        <div className="box content is-medium">
+                            <p>William is fun because he doesn't party at all.</p>
+                            <button className="button is-link">Remove William</button>
+                        </div>
+                        </div>
+                </div>}
             </div>
-        </div>
-        </div>
-    </section>
+        </section>
     )
   }
 }
